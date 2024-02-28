@@ -1,10 +1,7 @@
-<div class="flex flex-col p-5 ">
-  <h3 class="font-bold text-2xl text-green-400 my-20 py-2 border rounded-lg">My Blog</h3>
-  <%= button_to "New", @blog_post, method: :new %>
-  <% @blog_posts.each do |blog_post| %>
-    <div class="my-2">
-      <h2 class="text-blue-600 font-bold text-2xl"><%= link_to blog_post.title, blog_post %></h2>
-      <p><%= blog_post.body %></p>
-    </div>
-  <% end %>
-</div>
+<h1 class="font-bold text-2xl text-green-400 my-20 py-2 border rounded-lg">My Blog</h1>
+<% @blog_posts.each do |blog_post| %>
+  <div class="my-2">
+    <h2 class="text-blue-600 font-bold text-2xl"><%= link_to blog_post.title, blog_post %></h2>
+    <%= blog_post.body %>
+  </div>
+<% end %>
