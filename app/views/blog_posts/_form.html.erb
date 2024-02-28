@@ -1,6 +1,6 @@
 <%= form_with model: @blog_post do |form| %>
   <% if form.object.errors.any? %>
-    <div class="">
+    <div class="bg-transparent">
       <% form.object.errors.full_messages.each do |message| %>
         <div><%= message %></div>
       <% end %>
@@ -8,15 +8,15 @@
   <% end %>
   <div>
     <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, class: "bg-transparent rounded flex w-full" %>
   </div>
   <div>
-    <%= form.label :body %>
-    <%= form.text_area :body %>
+    <%= form.label :content %>
+    <%= form.rich_text_area :content %>
   </div>
-  <div>
+  <div class= "justify-between flex my-4">
     <%= form.label :published_at %>
-    <%= form.datetime_select :published_at, include_blank: true %>
+    <%= form.datetime_select :published_at, include_blank: true, class: "bg-transparent" %>
   </div>
-  <%= form.button %>
+  <%= form.button class: "bg-blue-200 px-3 py-2 rounded-lg" %>
 <% end %>

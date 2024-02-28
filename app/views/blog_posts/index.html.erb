@@ -1,7 +1,9 @@
-<h1 class="font-bold text-2xl text-green-400 my-20 py-2 border rounded-lg">My Blog</h1>
-<% @blog_posts.each do |blog_post| %>
-  <div class="my-2">
-    <h2 class="text-blue-600 font-bold text-2xl"><%= link_to blog_post.title, blog_post %></h2>
-    <%= blog_post.body %>
-  </div>
-<% end %>
+<div class="space-y-5 mx-auto">
+  <h1 class="font-bold text-3xl text-center">A Blog on Ruby</h1>
+  <% @blog_posts.each do |blog_post| %>
+    <div class="">
+      <h2 class="font-semibold"><%= link_to blog_post.title, blog_post %></h2>
+      <%= blog_post.content %>
+    </div>
+  <% end %>
+</div>

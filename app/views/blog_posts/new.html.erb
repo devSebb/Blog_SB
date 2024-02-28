@@ -1,2 +1,3 @@
-<h1>NEW BLOG POST YE </h1>
-<%= render partial: "form", locals: {blog_post: @blog_post} %>
+<div class="flex flex-col mx-auto space-y-5">
+  <h1 class="font-bold text-2xl text-center">New Post</h1>
+  <%= render partial: "form", locals: {blog_post: @blog_post} %>
