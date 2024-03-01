@@ -17,18 +17,18 @@
       }
     </style>
   </head>
-  <body class="flex p-6 overflow-hidden ">
+  <body class="flex p-6">
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <div class="flex flex-col space-y-5">
-      <%= link_to "Home", root_path, class: "" %>
+    <div class="flex flex-col fixed space-y-5 pr-4 pb-4 ">
+      <%= link_to "Home", root_path, class: "hover:text-teal-700" %>
+      <%= link_to "New Blog Post", new_blog_post_path, class: "hover:text-teal-700" %>
       <% if user_signed_in? %>
-        <%= link_to "New Blog Post", new_blog_post_path, class: "" %>
-        <%= link_to "Profile", edit_user_registration_path %>
-        <%= button_to "Log out", destroy_user_session_path, method: :delete %>
+        <%= link_to "Profile", edit_user_registration_path, class: "hover:text-teal-700" %>
+        <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "hover:text-teal-700" %>
       <% else %>
-        <%= link_to "Login", new_user_session_path %>
-        <%= link_to "Sign Up", new_user_registration_path %>
+        <%= link_to "Login", new_user_session_path, class: "hover:text-teal-700" %>
+        <%= link_to "Sign Up", new_user_registration_path, class: "hover:text-teal-700" %>
       <% end %>
     </div>
     <%= yield %>

@@ -14,3 +14,7 @@ user.update!(
   password: "password",
   password_confirmation: "password"
 )
+
+# 50.times do |i|
+#   BlogPost.create title: "Blog Post #{i}", content: "Hello to paginate", published_at: Time.current
+# end

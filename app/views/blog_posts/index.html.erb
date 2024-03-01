@@ -1,9 +1,22 @@
-<div class="space-y-5 mx-auto">
+<div class="space-y-8 mx-auto overflow-scroll">
   <h1 class="font-bold text-3xl text-center">A Blog on Ruby</h1>
   <% @blog_posts.each do |blog_post| %>
-    <div class="">
-      <h2 class="font-semibold"><%= link_to blog_post.title, blog_post %></h2>
-      <%= blog_post.content %>
+    <div class="border-2 border-gray-700 rounded-xl py-3 px-4 md:w-1/2 mx-auto">
+      <%= image_tag blog_post.cover_image, class: "max-w-md rounded-xl" if blog_post.cover_image.present? %>
+      <div class= "flex justify-between">
+        <h2 class="font-semibold text-lg"><%= link_to blog_post.title, blog_post %></h2>
+        <% if blog_post.draft? %>
+          <div class="text-center px-2 py-1 rounded bg-gray-100 text-gray-900 max-w-20 border-2 border-slate-500">Draft</div>
+        <% elsif blog_post.scheduled? %>
+          <div class="text-center px-2 py-1 rounded border-2 border-slate-600 bg-blue-100 text-blue-900 max-w-28">Scheduled</div>
+        <% end %>
+      </div>
+      <div class = "mt-5">
+        <%= blog_post.content %>
+      </div>
     </div>
+  <% end %>
+  <% if @pagy.count > @pagy.items %>
+    <%== pagy_nav(@pagy)%>
   <% end %>
 </div>

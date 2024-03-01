@@ -1,22 +1,36 @@
-<%= form_with model: @blog_post do |form| %>
-  <% if form.object.errors.any? %>
-    <div class="bg-transparent">
-      <% form.object.errors.full_messages.each do |message| %>
-        <div><%= message %></div>
+<div class= "mx-auto w-11/12 px-48">
+  <%= form_with model: @blog_post do |form| %>
+    <% if form.object.errors.any? %>
+      <div class="bg-transparent">
+        <% form.object.errors.full_messages.each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+      </div>
+    <% end %>
+    <div>
+      <%= form.label :title %>
+      <%= form.text_field :title, class: "bg-transparent rounded flex w-full" %>
+    </div>
+    <div>
+      <%= form.label :cover_image %>
+      <% if blog_post.cover_image.present? %>
+        <div id="<%= dom_id(blog_post, :cover_image) %>">
+          <%= image_tag blog_post.cover_image, class: "w-1/3" %>
+          <%= link_to "Remove cover image", blog_post_cover_image_path(blog_post), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+        </div>
       <% end %>
+      <%= form.file_field :cover_image %>
+    </div>
+    <div>
+      <%= form.label :content %>
+      <%= form.rich_text_area :content, class: "bg-transparent rounded flex w-full" %>
+    </div>
+    <div class="justify-between flex my-4">
+      <%= form.label :published_at %>
+      <%= form.datetime_select :published_at, include_blank: true, class: "bg-transparent" %>
+    </div>
+    <div class="flex items-center justify-center mt-8">
+      <%= form.button class: "bg-blue-200 px-3 py-2 rounded-lg border border-slate-600 hover:bg-blue-400" %>
     </div>
   <% end %>
-  <div>
-    <%= form.label :title %>
-    <%= form.text_field :title, class: "bg-transparent rounded flex w-full" %>
-  </div>
-  <div>
-    <%= form.label :content %>
-    <%= form.rich_text_area :content %>
-  </div>
-  <div class= "justify-between flex my-4">
-    <%= form.label :published_at %>
-    <%= form.datetime_select :published_at, include_blank: true, class: "bg-transparent" %>
-  </div>
-  <%= form.button class: "bg-blue-200 px-3 py-2 rounded-lg" %>
-<% end %>
+</div>
