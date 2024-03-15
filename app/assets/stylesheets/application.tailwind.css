@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .link {
+    @apply text-white tracking-wide;
+
+    &:hover {
+      @apply text-rose-600;
+    }
+  }
+}
+
 /*
 
 @layer components {
