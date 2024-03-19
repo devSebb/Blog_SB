@@ -1,5 +1,5 @@
 <div class= "flex flex-col space-y-5 mx-auto">
   <h1 class="text-2xl font-bold text-center">Edit Post</h1>
   <%= render partial: "form", locals: {blog_post: @blog_post} %>
-  <%= button_to "Delete", @blog_post, method: :delete, data: {turbo_confirm: "Are you sure?"} %>
+  <%= button_to "Delete", @blog_post, method: :delete, data: {turbo_confirm: "Are you sure?"}, class:"flex mx-auto" %>
 </div>
